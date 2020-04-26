@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      label: master
+      profile: pro
+      uri: http://localhost:8888/
+  application:
+    name: xrconfigclient
+server:
+  port: 8881

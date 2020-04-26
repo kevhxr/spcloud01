@@ -1,0 +1,18 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: xr-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kevhxr/SpringCloudConfig
+          search-paths: configs
+          default-label: master
+          username: kevhxr
+          password: Wscqkevin1221
