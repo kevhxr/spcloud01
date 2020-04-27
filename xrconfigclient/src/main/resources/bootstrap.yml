@@ -4,7 +4,15 @@ spring:
       label: master
       profile: pro
       uri: http://localhost:8888/
+      discovery:
+        enabled: true
+        service-id: xr-config
   application:
     name: xrconfigclient
+
 server:
   port: 8881
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8889/eureka/

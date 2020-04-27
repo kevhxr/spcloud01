@@ -9,8 +9,8 @@
         <module>xrribbon</module>
         <module>xrfeign</module>
         <module>xrzuul</module>
-        <module>xrconfiguration</module>
-        <module>xrconfigclient</module>
+        <module>xrconfigserver</module>
+        <module>eurekaserver2</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
