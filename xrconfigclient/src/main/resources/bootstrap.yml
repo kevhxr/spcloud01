@@ -1,4 +1,9 @@
 spring:
+  rabbitmq:
+    host: 192.168.99.100
+    port: 5672
+    username: guest
+    password: guest
   cloud:
     config:
       label: master
@@ -7,12 +12,20 @@ spring:
       discovery:
         enabled: true
         service-id: xr-config
+    bus:
+      enabled: true
+      trace:
+        enabled: true
   application:
     name: xrconfigclient
-
 server:
-  port: 8881
+  port: 8882
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8889/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

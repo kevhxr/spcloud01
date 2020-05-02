@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer2:8769/eureka/
+
+spring:
+  application:
+    name: peer1-server
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: classpath:/static,classpath:/temp

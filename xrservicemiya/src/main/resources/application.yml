@@ -1,0 +1,8 @@
+server:
+  port: 8989
+
+spring:
+  application:
+    name: xr-miya
+  zipkin:
+    base-url: http://localhost:9411

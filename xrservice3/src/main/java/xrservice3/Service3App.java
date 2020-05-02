@@ -1,4 +1,4 @@
-package com.xr.xrservice1;
+package xrservice3;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableHystrix
 @EnableHystrixDashboard
-public class EurekaServiceApp {
+public class Service3App {
 
     public static void main(String[] args) {
-        SpringApplication.run( EurekaServiceApp.class, args );
+        SpringApplication.run( Service3App.class, args );
     }
 
     @Value("${server.port}")

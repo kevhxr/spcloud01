@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>xrservice1</artifactId>
+    <artifactId>xrservice3</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

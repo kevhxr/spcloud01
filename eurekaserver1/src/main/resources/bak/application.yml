@@ -4,6 +4,7 @@ server:
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
   client:
     registerWithEureka: false
     fetchRegistry: false
@@ -12,4 +13,10 @@ eureka:
 
 spring:
   application:
-    name: eurka-server2
+    name: eurka-server
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: classpath:/static,classpath:/temp

@@ -6,11 +6,15 @@
     <modules>
         <module>eurekaserver1</module>
         <module>xrservice1</module>
+        <module>xrservice2</module>
         <module>xrribbon</module>
         <module>xrfeign</module>
         <module>xrzuul</module>
         <module>xrconfigserver</module>
         <module>eurekaserver2</module>
+        <module>xrservicemiya</module>
+        <module>xrturbine</module>
+        <module>xrservice3</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
