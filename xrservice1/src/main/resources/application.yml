@@ -1,10 +1,20 @@
 server:
-  port: 8762
+  port: 8763
 
 eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 2
+    lease-renewal-interval-in-seconds: 1
+    hostname: 127.0.0.1
+    instance-id: ${spring.cloud.client.ipAddress:127.0.0.1}:${server.port}
+    prefer-ip-address: true
+    health-check-url-path: /health
+
   client:
       service-url:
-        defaultZone: http://localhost:8761/eureka/
+        defaultZone: http://${eureka.instance.hostname}:${eureka.port:8761}/eureka/
+      register-with-eureka: true
+      fetch-registry: true
 
 spring:
   application:

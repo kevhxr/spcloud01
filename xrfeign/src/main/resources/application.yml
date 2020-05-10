@@ -1,5 +1,5 @@
 server:
-  port: 8765
+  port: 8755
 
 eureka:
   client:
@@ -9,6 +9,11 @@ spring:
   application:
     name: xr-feign
 feign:
+  client:
+    default-config:
+      connectTimeout: 5000
+      readTimeout: 5000
+      loggerLevel: basic
   hystrix:
     enabled: true
 

@@ -1,5 +1,6 @@
 package com.xr.feign.controller;
 
+import com.xr.feign.interfaces.ConsumerFeignClient;
 import com.xr.feign.interfaces.TestInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +12,16 @@ public class MainController {
     @Autowired
     TestInterface testInterface;
 
+    @Autowired
+    ConsumerFeignClient consumerFeignClient;
+
     @GetMapping(value = "/hi")
     public String hi(@RequestParam String name) {
         return testInterface.sayHiFromClientOne(name);
+    }
+
+    @GetMapping(value = "/con/get")
+    public String getConsumers() {
+        return consumerFeignClient.getConsumersList();
     }
 }
