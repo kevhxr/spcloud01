@@ -9,8 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @Configuration
@@ -24,7 +23,10 @@ public class ConsumController {
     @RequestMapping(value = "/get")
     @ResponseBody
     public String getConsumerList(@RequestHeader("Authorization") String authHeader,
-                                  @RequestHeader HttpHeaders headers){
+                                  @RequestHeader HttpHeaders headers,
+                                  String[]  cellphone){
+        System.out.println("sss");
+        Arrays.stream(cellphone).forEach(a-> System.out.println(a));
         headers.entrySet().stream().forEach(et->{
             System.out.println(et.getKey()+"---"+et.getValue());
         });

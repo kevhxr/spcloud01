@@ -11,13 +11,16 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableHystrix
-@EnableHystrixDashboard
+/*@EnableRetry*/
+/*@EnableHystrix
+@EnableHystrixDashboard*/
 @RibbonClient(name = "xrribbon", configuration = CustomizedRule.class)
 public class RibbonApplication {
 
@@ -27,7 +30,10 @@ public class RibbonApplication {
 
     @Bean
     @LoadBalanced
-    RestTemplate restTemplate() {
+    RestTemplate restTemplate() {/*
+        SimpleClientHttpRequestFactory simpleClientHttpRequestFactory = new   SimpleClientHttpRequestFactory();
+        simpleClientHttpRequestFactory.setConnectTimeout(1000);
+        simpleClientHttpRequestFactory.setReadTimeout(1000);*/
         return new RestTemplate();
     }
 }

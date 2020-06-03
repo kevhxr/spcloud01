@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
@@ -19,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Service3App {
 
     public static void main(String[] args) {
-        SpringApplication.run( Service3App.class, args );
+        SpringApplication.run(Service3App.class, args);
     }
 
     @Value("${server.port}")
@@ -36,7 +40,25 @@ public class Service3App {
         return "hi stock: " + name + " , port No is:" + port;
     }
 
+
+    @RequestMapping("/nba")
+    public String getNbaTeams() {
+        System.out.println("hihihihi");
+        Random random = new Random();
+        List<String> teams = new ArrayList<>();
+        teams.add("raptors");
+        teams.add("lakers");
+        teams.add("Rockets");
+        teams.add("Bucks");
+        teams.add("Kings");
+        teams.add("Warriors");
+        teams.add("TimberWolves");
+        teams.add("spurs");
+        return "hi team: " + teams.get(random.nextInt(teams.size() - 1)) + " ";
+    }
+
+
     public String failureAdvice(String name) {
-        return "hi,"+name+",sorry,service 1 failed!";
+        return "hi," + name + ",sorry,service 1 failed!";
     }
 }

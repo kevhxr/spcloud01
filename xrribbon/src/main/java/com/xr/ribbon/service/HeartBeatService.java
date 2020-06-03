@@ -10,12 +10,12 @@ public class HeartBeatService {
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "handleFailure")
+/*    @HystrixCommand(fallbackMethod = "handleFailure")*/
     public String hbService(String name) {
         return restTemplate.getForObject("http://eureka-service1/stock?name=" + name, String.class);
     }
 
     public String handleFailure(String name) {
-        return "hi,"+name+", sorry but we encounter failure!!!";
+        return "hi," + name + ", sorry but we encounter failure!!!";
     }
 }

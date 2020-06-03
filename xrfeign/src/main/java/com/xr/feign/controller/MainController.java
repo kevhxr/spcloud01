@@ -16,7 +16,8 @@ public class MainController {
     ConsumerFeignClient consumerFeignClient;
 
     @GetMapping(value = "/hi")
-    public String hi(@RequestParam String name) {
+    public String hi(@RequestParam String name) throws InterruptedException {
+        System.out.println("request hihi!!!!");
         return testInterface.sayHiFromClientOne(name);
     }
 

@@ -21,6 +21,9 @@ spring:
     name: eureka-service1
 
 management:
+  endpoint:
+    health:
+      show-details: always
   endpoints:
     web:
       exposure:

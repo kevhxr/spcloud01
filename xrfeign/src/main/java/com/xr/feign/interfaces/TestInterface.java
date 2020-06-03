@@ -1,14 +1,17 @@
 package com.xr.feign.interfaces;
 
+import com.xr.feign.config.FeignConfig;
 import com.xr.feign.service.HystricService;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "eureka-service1",fallback = HystricService.class)
+@FeignClient(value = "eureka-service1",
+        configuration = FeignConfig.class,
+        fallback = HystricService.class)
 public interface TestInterface {
 
-    @RequestMapping(value = "/hi", method = RequestMethod.GET)
+    @RequestMapping(value = "/stock", method = RequestMethod.GET)
     String sayHiFromClientOne(@RequestParam(value = "name") String name);
 }
